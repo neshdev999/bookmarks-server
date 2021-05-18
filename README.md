@@ -20,3 +20,16 @@ POST => http://localhost:8000/bookmarks/
 GET => /bookmarks/:bookmark_id
 DELETE => /bookmarks/:bookmark_id
 
+## create database
+createdb -U dunder_mifflin bookmark
+
+## create test database
+createdb -U dunder_mifflin bookmark-test
+
+## seed the database
+psql -U dunder_mifflin -d bookmark -f ./seeds/seed.bookmarks.sql
+psql -U dunder_mifflin -d bookmark -f ./seeds/trunc.bookmarks.sql
+
+psql -U dunder_mifflin -d bookmark-test -f ./seeds/seed.bookmarks.sql
+psql -U dunder_mifflin -d bookmark-test -f ./seeds/trunc.bookmarks.sql
+
